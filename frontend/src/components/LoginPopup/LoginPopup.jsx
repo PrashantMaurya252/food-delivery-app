@@ -7,7 +7,7 @@ const LoginPopup = ({setShowLogin}) => {
   return (
     <div className='login-popup'>
         <form className='login-popup-container'>
-            <div className='login-pop-title'>
+            <div className='login-popup-title'>
                 <h2>{currState}</h2>
                 <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt=''/>
             </div>
@@ -23,7 +23,12 @@ const LoginPopup = ({setShowLogin}) => {
                 <input type='checkbox' required/>
                 <p>By continuing, i agree to the term of useivacy policy</p>
             </div>
-            <p>Create a new account ? <span>Click here</span></p>
+            {currState === 'Login' ?(
+                <p>Create a new account ? <span onClick={()=>setCurrState("Sign Up")}>Click here</span></p>
+            ):(
+                <p>Already have an account ? <span onClick={()=>setCurrState("Login")}>Login here</span></p>
+            )}
+            
         </form>
     </div>
   )
