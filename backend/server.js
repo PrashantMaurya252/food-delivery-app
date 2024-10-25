@@ -3,6 +3,7 @@ import cors from 'cors'
 import mongoDB from "./config/db.js";
 import foodRouter from "./routes/foodRoute.js";
 import dotenv from 'dotenv'
+import userRouter from "./routes/userRoute.js";
 
 const app =express()
 const port = 5000
@@ -17,9 +18,11 @@ mongoDB()
 
 app.use("/api/food",foodRouter)
 app.use('/images',express.static('uploads'))
+app.use("/api/user",userRouter)
 app.get("/",(req,res)=>{
     res.send("API working")
 })
+
 
 app.listen(port,()=>{
     console.log(`Server is running on port ${port}`)
