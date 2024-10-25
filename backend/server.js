@@ -5,7 +5,7 @@ import foodRouter from "./routes/foodRoute.js";
 import dotenv from 'dotenv'
 
 const app =express()
-const port = 6000
+const port = 5000
 
 dotenv.config()
 app.use(express.json())
