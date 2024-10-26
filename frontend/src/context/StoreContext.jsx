@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import { food_list } from "../assets/assets";
+import { useNavigate } from "react-router-dom";
 
 export const StoreContext = createContext(null)
 
@@ -7,6 +8,7 @@ const StoreContextProvider =(props) =>{
     const [cartItems,setCartItems] = useState({})
     const url = 'http://localhost:5000'
     const [token,setToken] = useState("")
+    const navigate = useNavigate()
 
     const addToCart = (itemId)=>{
         if(!cartItems[itemId]){
@@ -32,6 +34,18 @@ const StoreContextProvider =(props) =>{
         return totalAmount
     }
 
+    const logout = () =>{
+        localStorage.removeItem("token")
+        setToken("")
+        navigate("/")
+
+    }
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            setToken(localStorage.getItem("token"))
+        }
+    },[])
+
     const contextValue ={
           food_list,
           cartItems,
@@ -41,7 +55,8 @@ const StoreContextProvider =(props) =>{
           getTotalCartAmount,
           url,
           token,
-          setToken
+          setToken,
+          logout
     }
 
     
