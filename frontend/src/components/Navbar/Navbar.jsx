@@ -10,6 +10,8 @@ const Navbar = ({ setShowLogin }) => {
   const {getTotalCartAmount,token,setToken,logout} = useContext(StoreContext)
 
   
+
+  
   
   return (
     <div className="navbar">
