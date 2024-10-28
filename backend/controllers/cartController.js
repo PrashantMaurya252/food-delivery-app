@@ -32,6 +32,10 @@ const removeFromCart = async (req,res) =>{
         if(cartData[req.body.itemId] > 0){
              cartData[req.body.itemId] -= 1
         }
+
+        if(cartData[req.body.itemId] === 0){
+            delete cartData[req.body.itemId]
+        }
         await userModel.findByIdAndUpdate(req.body.userId,{cartData})
         res.json({success:true,message:"Remove From Cart"})
     } catch (error) {
