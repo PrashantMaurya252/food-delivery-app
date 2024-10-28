@@ -1,13 +1,16 @@
 import { useContext, useState } from "react";
 import { assets } from "../../assets/assets";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../../context/StoreContext";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("home");
 
   const {getTotalCartAmount,token,setToken,logout} = useContext(StoreContext)
+  const navigate = useNavigate()
+
+
 
   
 
@@ -62,7 +65,7 @@ const Navbar = ({ setShowLogin }) => {
         <div className="navbar-profile">
           <img src={assets.profile_icon} alt="profile-icon" />
           <ul className="nav-profile-dropdown">
-            <li><img src={assets.bag_icon} alt="bag-icon" /><p>Orders</p></li>
+            <li onClick={()=>navigate('myorders')}><img src={assets.bag_icon} alt="bag-icon" /><p>Orders</p></li>
             <hr />
             <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
           </ul>
