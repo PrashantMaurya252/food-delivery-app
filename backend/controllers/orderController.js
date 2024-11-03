@@ -1,5 +1,5 @@
-import dotenv from 'dotenv';
-dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModels.js";
@@ -14,6 +14,7 @@ import Stripe from "stripe";
 
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '')
+
 
 
 const placeOrder = async(req,res) =>{
