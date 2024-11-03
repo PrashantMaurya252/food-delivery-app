@@ -13,7 +13,7 @@ import foodRouter from "./routes/foodRoute.js";
 
 mongoDB()
 const app =express()
-const port = 5000
+const port = process.env.PORT || 5000
 
 
 app.use(express.json())
