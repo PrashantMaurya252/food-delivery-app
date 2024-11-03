@@ -1,5 +1,5 @@
-// import dotenv from 'dotenv';
-// dotenv.config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModels.js";
